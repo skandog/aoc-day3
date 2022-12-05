@@ -25,6 +25,11 @@ function charInCommon(a, b) {
         if (b.indexOf(a[i]) != -1)
             return (a[i]);
 }
+function charInCommonThree(a, b, c) {
+    for (var i = 0, len = a.length; i < len; i++)
+        if (b.indexOf(a[i]) != -1 && c.indexOf(a[i]) != -1)
+            return (a[i]);
+}
 var key = (function () {
     var caps = __spreadArray([], Array(26), true).map(function (val, i) { return String.fromCharCode(i + 65); });
     var lower = caps.map(function (letter) { return letter.toLowerCase(); });
@@ -39,14 +44,24 @@ function wordScore(word) {
     return score;
 }
 var total = 0;
-for (var i = 0; i < puzzleInputArr.length; i++) {
-    var stringLength = puzzleInputArr[i].length;
-    var left = puzzleInputArr[i].slice(0, stringLength / 2);
-    var right = puzzleInputArr[i].slice(stringLength / 2, stringLength);
-    //console.log('left :>> ', left);
-    //console.log('right :>> ', right);
-    //console.log(charInCommon(left, right))
-    var commonCharacter = charInCommon(left, right);
+for (var i = 0; i < badgeInputArr.length; i++) {
+    var elf0 = badgeInputArr[i][0];
+    var elf1 = badgeInputArr[i][1];
+    var elf2 = badgeInputArr[i][2];
+    var commonCharacter = charInCommonThree(elf0, elf1, elf2);
     total += wordScore(commonCharacter);
+    console.log(commonCharacter);
 }
 console.log(total);
+// // Used for part 1
+// for ( let i = 0; i < puzzleInputArr.length; i++) {
+//     let stringLength: number = puzzleInputArr[i].length
+//     let left: any = puzzleInputArr[i].slice(0, stringLength/2)
+//     let right: any = puzzleInputArr[i].slice(stringLength/2, stringLength)
+//     //console.log('left :>> ', left);
+//     //console.log('right :>> ', right);
+//      //console.log(charInCommon(left, right))
+//     let commonCharacter: string = charInCommon(left, right)
+//      total += wordScore(commonCharacter)
+// }
+//  console.log(total);

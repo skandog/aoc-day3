@@ -32,6 +32,13 @@ function charInCommon(a: string, b: string){
   
 }
 
+function charInCommonThree(a: string, b: string, c: string){
+
+    for( var i = 0, len = a.length; i < len; i++ ) 
+        if(b.indexOf(a[i]) != -1 && c.indexOf(a[i]) != -1)
+            return (a[i]);
+  
+}
 
 
 const key = (() => {
@@ -52,15 +59,26 @@ function wordScore(word: string): number {
 
 let total: number = 0;
 
-for ( let i = 0; i < puzzleInputArr.length; i++) {
-    let stringLength: number = puzzleInputArr[i].length
-    let left: any = puzzleInputArr[i].slice(0, stringLength/2)
-    let right: any = puzzleInputArr[i].slice(stringLength/2, stringLength)
-    //console.log('left :>> ', left);
-    //console.log('right :>> ', right);
-     //console.log(charInCommon(left, right))
-    let commonCharacter: string = charInCommon(left, right)
-     total += wordScore(commonCharacter)
+for (let i = 0; i < badgeInputArr.length; i++) {
+    let elf0 = badgeInputArr[i][0]
+    let elf1 = badgeInputArr[i][1]
+    let elf2 = badgeInputArr[i][2]
+   let commonCharacter = charInCommonThree(elf0, elf1, elf2)
+   total += wordScore(commonCharacter)
+   console.log(commonCharacter);
 }
 
- console.log(total);
+console.log(total);
+// // Used for part 1
+// for ( let i = 0; i < puzzleInputArr.length; i++) {
+//     let stringLength: number = puzzleInputArr[i].length
+//     let left: any = puzzleInputArr[i].slice(0, stringLength/2)
+//     let right: any = puzzleInputArr[i].slice(stringLength/2, stringLength)
+//     //console.log('left :>> ', left);
+//     //console.log('right :>> ', right);
+//      //console.log(charInCommon(left, right))
+//     let commonCharacter: string = charInCommon(left, right)
+//      total += wordScore(commonCharacter)
+// }
+
+//  console.log(total);
