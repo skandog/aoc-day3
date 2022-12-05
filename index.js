@@ -11,12 +11,9 @@ var puzzleInput = "vJrwpWtwJgWrhcsFMMfFFhFp\njqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL\nP
 var puzzleInputArr = puzzleInput.split('\n');
 var dupes = [];
 function charInCommon(a, b) {
-    // if( b.length < a.length )
-    //     return charInCommon(b, a)
     for (var i = 0, len = a.length; i < len; i++)
         if (b.indexOf(a[i]) != -1)
             return (a[i]);
-    return false;
 }
 var key = (function () {
     var caps = __spreadArray([], Array(26), true).map(function (val, i) { return String.fromCharCode(i + 65); });
@@ -31,13 +28,15 @@ function wordScore(word) {
     }
     return score;
 }
-console.log(wordScore('A'));
+var total = 0;
 for (var i = 0; i < puzzleInputArr.length; i++) {
     var stringLength = puzzleInputArr[i].length;
     var left = puzzleInputArr[i].slice(0, stringLength / 2);
     var right = puzzleInputArr[i].slice(stringLength / 2, stringLength);
     //console.log('left :>> ', left);
     //console.log('right :>> ', right);
-    console.log(charInCommon(left, right));
+    //console.log(charInCommon(left, right))
+    var commonCharacter = charInCommon(left, right);
+    total += wordScore(commonCharacter);
 }
-// console.log(puzzleInputArr);
+console.log(total);
