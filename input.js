@@ -298,3 +298,5 @@ JCWWRWCrLDDdBdLsSsLLSCrCNZMVcmMZMFwMZwNZPZVGFPmr
 hhPzDzPhPNbfpzhBbdNbDhttzqWtwttHWwntjqmwmWFm
 LgGZSdMMrgTLrZLdgLSgsGTFFjrWtFFmmmFtWjqHFnFtjn
 vZgdLvZLZQLRQZQQdMZLdQvVpRhNNPfJDbcBbbhVNJNNhf`;
+
+export default puzzleInput;

@@ -1,4 +1,4 @@
-
+// import puzzleInput from './input.js'
 
 const puzzleInput: any = `vJrwpWtwJgWrhcsFMMfFFhFp
 jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
@@ -7,7 +7,20 @@ wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
 ttgJtRGJQctTZtZT
 CrZsJsPPZsGzwwsLwLmpwMDw`
 
+console.log(puzzleInput)
+
 let puzzleInputArr: any = puzzleInput.split('\n')
+
+let badgeInputArr: any = []
+
+for (let i = 0; 3 * i < puzzleInputArr.length; i++) {
+    badgeInputArr[i] = []
+    badgeInputArr[i].push( puzzleInputArr[3 * i])
+    badgeInputArr[i].push(puzzleInputArr[(3 * i) + 1])
+    badgeInputArr[i].push(puzzleInputArr[(3 * i) + 2])
+}
+
+console.log(badgeInputArr);
 
 let dupes: string[] = [];
 

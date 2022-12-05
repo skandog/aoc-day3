@@ -1,3 +1,4 @@
+// import puzzleInput from './input.js'
 var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
         if (ar || !(i in from)) {
@@ -8,7 +9,16 @@ var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
     return to.concat(ar || Array.prototype.slice.call(from));
 };
 var puzzleInput = "vJrwpWtwJgWrhcsFMMfFFhFp\njqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL\nPmmdzqPrVvPwwTWBwg\nwMqvLMZHhHMvwLHjbvcjnnSBnvTQFn\nttgJtRGJQctTZtZT\nCrZsJsPPZsGzwwsLwLmpwMDw";
+console.log(puzzleInput);
 var puzzleInputArr = puzzleInput.split('\n');
+var badgeInputArr = [];
+for (var i = 0; 3 * i < puzzleInputArr.length; i++) {
+    badgeInputArr[i] = [];
+    badgeInputArr[i].push(puzzleInputArr[3 * i]);
+    badgeInputArr[i].push(puzzleInputArr[(3 * i) + 1]);
+    badgeInputArr[i].push(puzzleInputArr[(3 * i) + 2]);
+}
+console.log(badgeInputArr);
 var dupes = [];
 function charInCommon(a, b) {
     for (var i = 0, len = a.length; i < len; i++)
